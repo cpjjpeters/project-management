@@ -9,6 +9,7 @@ import be.ipeters.pma.entities.Project;
 @Controller
 @RequestMapping("/projects")
 public class ProjectController {
+	
 	@RequestMapping("/new")
 	public String displayProjectForm(Model model) {
 		Project aProject = new Project();

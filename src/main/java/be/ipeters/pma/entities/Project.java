@@ -15,7 +15,8 @@ import lombok.NoArgsConstructor;
 @Entity
 public class Project {
 	@Id
-	@GeneratedValue(GenerationType.AUTO)
+//	@GeneratedValue(GenerationType.AUTO)
+	@GeneratedValue(GenerationType.IDENTITY)
 	private long projectId;
 	
 	private String name;
