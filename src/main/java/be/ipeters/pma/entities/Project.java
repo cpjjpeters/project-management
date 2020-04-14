@@ -5,30 +5,59 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
 public class Project {
 	@Id
-//	@GeneratedValue(GenerationType.AUTO)
-	@GeneratedValue(GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long projectId;
-	
+
 	private String name;
-	
-	private String stage;  // NOTSTARTED, COMPLETED, INPROGRESS
-	
+
+	private String stage; // NOTSTARTED, COMPLETED, INPROGRESS
+
 	private String description;
-	
-	public Project(String name, String stage, String description) {
+
+	public Project() {
 		super();
+	}
+
+	public Project(long projectId, String name, String stage, String description) {
+		super();
+		this.projectId = projectId;
 		this.name = name;
 		this.stage = stage;
+		this.description = description;
+	}
+
+	public long getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(long projectId) {
+		this.projectId = projectId;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getStage() {
+		return stage;
+	}
+
+	public void setStage(String stage) {
+		this.stage = stage;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
 		this.description = description;
 	}
 
