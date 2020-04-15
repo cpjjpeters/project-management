@@ -10,35 +10,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import be.ipeters.pma.entities.Employee;
-import be.ipeters.pma.entities.Project;
-import be.ipeters.pma.repository.ProjectRepository;
+import be.ipeters.pma.repository.EmployeeRepository;
 
 @Controller
-@RequestMapping("/projects")
-public class ProjectController {
+@RequestMapping("/employees")
+public class EmployeeController {
 	@Autowired
-	ProjectRepository proRepo;
+	EmployeeRepository empRepo;
 	
 	@GetMapping
 	public String displayEmployees(Model model) {
-		List<Project> projects = proRepo.findAll();
-		model.addAttribute("projects", projects);
-		return "projects/list-projects";
+		List<Employee> employees = empRepo.findAll();
+		model.addAttribute("employees", employees);
+		return "employees/list-employees";
 	}
-	
 	@GetMapping("/new")
-	public String displayProjectForm(Model model) {
-		Project aProject = new Project();
-		model.addAttribute("project", aProject);
+	public String displayEmployeeForm(Model model) {
+		Employee aEmployee = new Employee();
+		model.addAttribute("employee", aEmployee);
 		
-		return "projects/new-project";
+		return "employees/new-employee";
 	}
 	
 	@PostMapping("/save")
-	public String createProject(Project project, Model model) {
-		proRepo.save(project);
+	public String createEmployee(Employee employee, Model model) {
+		empRepo.save(employee);
 //		use a redirect to prevent duplicate submissions
-		return "redirect:/projects/new";
+		return "redirect:/employees/new";
 	}
 
 }

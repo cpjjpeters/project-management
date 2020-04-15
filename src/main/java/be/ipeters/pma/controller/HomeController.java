@@ -21,7 +21,7 @@ public class HomeController {
 //		Iterable<Project> projects = proRepo.findAll(); //standard, but then we define a List in the Repository
 		List<Project> projects = proRepo.findAll();
 		model.addAttribute("projectsList",projects);
-		return "home";
+		return "main/home";
 	}
 
 }
