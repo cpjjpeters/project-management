@@ -11,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import be.ipeters.pma.entities.Employee;
 import be.ipeters.pma.repository.EmployeeRepository;
-
+import lombok.extern.slf4j.Slf4j;
+@Slf4j
 @Controller
 @RequestMapping("/employees")
 public class EmployeeController {
@@ -28,7 +29,7 @@ public class EmployeeController {
 	public String displayEmployeeForm(Model model) {
 		Employee aEmployee = new Employee();
 		model.addAttribute("employee", aEmployee);
-		
+		log.info("getmapping new employee");
 		return "employees/new-employee";
 	}
 	
